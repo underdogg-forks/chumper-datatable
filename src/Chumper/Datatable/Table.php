@@ -304,7 +304,8 @@ class Table {
             $this->createMapping();
         }
         return array(
-            'options' => $this->convertData(array_merge($this->options, $this->callbacks)),
+            'callbacks' => $this->callbacks,
+            'options'   => $this->options,
             'values'    => $this->customValues,
             'data'      => $this->data,
             'columns'   => array_combine($this->aliasColumns,$this->columns),
