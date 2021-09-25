@@ -36,7 +36,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
     {
         $this->builder->shouldReceive('orderBy')->with('id', BaseEngine::ORDER_ASC);
 
-        Input::merge(
+        Request::merge(
             array(
                 'iSortCol_0' => 0,
                 'sSortDir_0' => 'asc'
@@ -47,7 +47,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
 
         $this->builder->shouldReceive('orderBy')->with('id', BaseEngine::ORDER_DESC);
 
-        Input::merge(
+        Request::merge(
             array(
                 'iSortCol_0' => 0,
                 'sSortDir_0' => 'desc'
@@ -68,7 +68,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
         $this->addRealColumns($this->c);
         $this->c->searchColumns('foo');
 
-        Input::merge(
+        Request::merge(
             array(
                 'sSearch' => 'test'
             )
@@ -89,7 +89,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
 
         $this->addRealColumns($this->c);
 
-        Input::merge(
+        Request::merge(
             array(
                 'iDisplayStart' => 1,
                 'sSearch' => null
@@ -113,7 +113,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
 
         $this->addRealColumns($this->c);
 
-        Input::merge(
+        Request::merge(
             array(
                 'iDisplayLength' => 1,
                 'sSearch' => null,
@@ -141,7 +141,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
         $engine->searchColumns('foo','bar');
         $engine->setAliasMapping();
 
-        Input::replace(
+        Request::replace(
             array(
                 'sSearch' => 't',
             )
@@ -160,7 +160,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
         $engine->searchColumns('foo','bar');
         $engine->setAliasMapping();
 
-        Input::replace(
+        Request::replace(
             array(
                 'sSearch' => 'plasch',
             )
@@ -179,7 +179,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
         $engine->searchColumns('foo','bar');
         $engine->setAliasMapping();
 
-        Input::replace(
+        Request::replace(
             array(
                 'sSearch' => 'tay',
             )
@@ -198,7 +198,7 @@ class QueryEngineTest extends PHPUnit_Framework_TestCase {
         $engine->searchColumns('foo','bar');
         $engine->setAliasMapping();
 
-        Input::replace(
+        Request::replace(
             array(
                 'sSearch' => '0',
             )
